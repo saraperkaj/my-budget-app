@@ -1,53 +1,67 @@
 import axios from "axios";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
-function TransactionNewForm() {
+function TransactionEditForm() {
   const URL = process.env.REACT_APP_API_URL;
   const navigate = useNavigate();
+  let { index } = useParams();
 
-  const [transaction, setTrans] = useState({
+  const [transaction, setTransaction] = useState({
     itemName: "",
-    amount: 0,
+    amount: "",
     date: "",
     from: "",
     category: "",
   });
 
+  useEffect(() => {
+    axios.get(`${URL}/transactions/${index}`).then((response) => {
+      setTransaction({
+        itemName: response.data.itemName,
+        amount: response.data.amount,
+        date: response.data.date,
+        from: response.data.from,
+        category: response.data.category,
+      });
+    });
+  }, [URL, index]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post(`${URL}/transactions`, transaction)
-      .then(() => navigate(`/transactions`));
+      .put(`${URL}/transactions/${index}`, transaction)
+      .then(() => navigate(`/transactions/${index}`));
     console.log("15");
   };
 
+  const handleTextChange = (event) => {
+    setTransaction({ ...transaction, [event.target.id]: event.target.value });
+    console.log("no");
+  };
+
   const handleNumberChange = (event) => {
-    setTrans({
+    setTransaction({
       ...transaction,
       [event.target.id]: Number(event.target.value),
     });
   };
 
-  const handleTextChange = (event) => {
-    setTrans({ ...transaction, [event.target.id]: event.target.value });
-  };
-
   return (
-    <div className="edit">
+    <div>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="date">Date</label>
+        <label htmlFor="date">Date:</label>
         <input
           id="date"
           name="date"
           value={transaction.date}
           type="text"
           onChange={handleTextChange}
-          placeholder="zero"
+          placeholder="Date"
           required
         />
 
-        <label htmlFor="itemName">What your $ is going towards</label>
+        <label htmlFor="itemName">Item Name:</label>
         <input
           id="itemName"
           name="itemName"
@@ -58,41 +72,42 @@ function TransactionNewForm() {
           required
         />
 
-        <label htmlFor="amount">$Amount$</label>
+        <label htmlFor="amount">Amount:</label>
         <input
           id="amount"
-          name="number"
+          name="amount"
           value={transaction.amount}
           type="number"
           onChange={handleNumberChange}
           placeholder="1000.00"
           required
         />
-
-        <label htmlFor="from">Where'd this $ come from? 🤔</label>
+        <label htmlFor="from">From:</label>
         <input
           id="from"
           name="from"
           value={transaction.from}
-          type="text"
+          type="from"
           onChange={handleTextChange}
           placeholder="Did you use this money from your check? From the 20 you got for your Birthday? Where's it from???"
+          required
         />
 
-        <label htmlFor="category">Category</label>
+        <label htmlFor="category">Category:</label>
         <input
           id="category"
           name="category"
           value={transaction.category}
-          type="text"
+          type="category"
           onChange={handleTextChange}
           placeholder="Food, Hygiene, Necessities..."
+          required
         />
 
-        <button type="submit">submit</button>
+        <input type="submit" />
       </form>
     </div>
   );
 }
 
-export default TransactionNewForm;
+export default TransactionEditForm;
