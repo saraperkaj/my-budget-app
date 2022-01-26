@@ -36,8 +36,7 @@ function TransactionNewForm() {
   return (
     <>
       <form onSubmit={handleSubmit} className="edit">
-        AMONG US
-        {/* <label htmlFor="date">Date</label>
+        <label htmlFor="date">Date</label>
         <input
           id="date"
           name="date"
@@ -88,7 +87,7 @@ function TransactionNewForm() {
           type="text"
           onChange={handleTextChange}
           placeholder="Food, Hygiene, Necessities..."
-        /> */}
+        />
         <button type="submit">submit</button>
       </form>
     </>
