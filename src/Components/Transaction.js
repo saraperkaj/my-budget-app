@@ -1,11 +1,11 @@
 function Transaction({ transaction, index }) {
   return (
     <div>
-      {transaction.date}
+      <p>{transaction.date}</p>
       <a href={`/transactions/${index}`} target="_blank" rel="noreferrer">
         {transaction.itemName}
       </a>
-      {transaction.amount}
+      <p>${transaction.amount}</p>
     </div>
   );
 }

@@ -31,7 +31,7 @@ function TransactionEditForm() {
     event.preventDefault();
     axios
       .put(`${URL}/transactions/${index}`, transaction)
-      .then(() => navigate(`/transactions/${index}`));
+      .then(() => navigate(`/transactions/`));
     console.log("15");
   };
 
@@ -48,7 +48,7 @@ function TransactionEditForm() {
   };
 
   return (
-    <div>
+    <>
       <form onSubmit={handleSubmit}>
         <label htmlFor="date">Date:</label>
         <input
@@ -77,7 +77,7 @@ function TransactionEditForm() {
           id="amount"
           name="amount"
           value={transaction.amount}
-          type="number"
+          type="text"
           onChange={handleNumberChange}
           placeholder="1000.00"
           required
@@ -106,7 +106,7 @@ function TransactionEditForm() {
 
         <input type="submit" />
       </form>
-    </div>
+    </>
   );
 }
 

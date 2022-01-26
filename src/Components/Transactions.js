@@ -15,20 +15,20 @@ function Transactions() {
         setTrans(response.data);
       })
       .catch((event) => console.log("catch", event));
-  }, []);
+  }, [URL]);
 
-  //   if (!transactions) {
-  //     return null;
-  //   }
+  // if (response.data === null) {
+  //   return {};
+  // }
 
   const transList = transactions.map((transaction, index) => {
     return <Transaction key={index} transaction={transaction} index={index} />;
   });
 
   return (
-    <div className="transactions">
+    <>
       <ul>{transList}</ul>
-    </div>
+    </>
   );
 }
 

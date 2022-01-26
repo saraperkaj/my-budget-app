@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: rgb(24, 50, 39);
 }
 
 .App-logo {
@@ -35,4 +36,119 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* NavBar */
+
+* {
+  box-sizing: border-box;
+}
+
+nav div {
+  margin-top: 5px;
+  color: #34495e;
+  font-size: 0.99em;
+}
+
+nav h1 {
+  padding: 10px 15px;
+  text-transform: uppercase;
+  text-align: center;
+  display: block;
+}
+
+nav:hover {
+  color: #718daa;
+}
+
+nav {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border: 1px solid #a2a2a2;
+  background-color: rgb(50, 50, 20);
+  -webkit-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+@media (min-width: 769px) {
+  nav,
+  nav div {
+    display: flex;
+  }
+  nav {
+    flex-direction: column;
+    align-items: center;
+    nav {
+      width: 80%;
+      margin: 0 auto;
+      max-width: 1150px;
+    }
+  }
+}
+
+@media (min-width: 1025px) {
+  nav {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+nav a {
+  color: rgb(45, 78, 113);
+}
+
+nav button {
+  appearance: none;
+  border: none;
+  outline: none;
+  background: #009aed;
+  font-size: 20px;
+  padding: 20px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+/* index */
+
+div .Index div {
+  border-color: aliceblue;
+  margin: 90px;
+  box-sizing: border-box;
+  background-color: rgb(69, 171, 128);
+  color: aliceblue;
+  display: flex;
+  min-height: 13vh;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  padding-bottom: 20px;
+  font-size: 20px;
+}
+
+.Index p,
+.Index a {
+  margin: 90px;
+}
+
+/* show */
+.Show p {
+  margin-left: 90px;
+}
+.Show div.buttons {
+  margin: 20px;
+  margin-left: 110px;
+}
+.Show div {
+  margin-right: 45px;
+}
+
+.Show div,
+.Show div.buttons,
+.Show p {
+  color: aliceblue;
+  border-color: aliceblue;
 }

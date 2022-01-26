@@ -18,7 +18,7 @@ function TransactionDetails() {
       .catch(() => {
         navigate("/transactions");
       });
-  }, [URL]);
+  }, [URL, index, navigate]);
 
   const handleDelete = () => {
     axios
@@ -33,8 +33,7 @@ function TransactionDetails() {
           {transaction.date}
           <br />
           {transaction.itemName}
-          <br />
-          {transaction.amount}
+          <br />${transaction.amount}
         </p>
         <p>
           {transaction.from}

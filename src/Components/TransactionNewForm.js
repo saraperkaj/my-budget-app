@@ -34,9 +34,10 @@ function TransactionNewForm() {
   };
 
   return (
-    <div className="edit">
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="date">Date</label>
+    <>
+      <form onSubmit={handleSubmit} className="edit">
+        AMONG US
+        {/* <label htmlFor="date">Date</label>
         <input
           id="date"
           name="date"
@@ -63,7 +64,7 @@ function TransactionNewForm() {
           id="amount"
           name="number"
           value={transaction.amount}
-          type="number"
+          type="text"
           onChange={handleNumberChange}
           placeholder="1000.00"
           required
@@ -87,11 +88,10 @@ function TransactionNewForm() {
           type="text"
           onChange={handleTextChange}
           placeholder="Food, Hygiene, Necessities..."
-        />
-
+        /> */}
         <button type="submit">submit</button>
       </form>
-    </div>
+    </>
   );
 }
 
