@@ -1,10 +1,10 @@
+import { Link } from "react-router-dom";
+
 function Transaction({ transaction, index }) {
   return (
     <div>
       <p>{transaction.date}</p>
-      <a href={`/transactions/${index}`} target="_blank" rel="noreferrer">
-        {transaction.itemName}
-      </a>
+      <Link to={`/transactions/${index}`}>{transaction.itemName}</Link>
       <p>${transaction.amount}</p>
     </div>
   );

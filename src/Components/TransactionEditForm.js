@@ -32,12 +32,10 @@ function TransactionEditForm() {
     axios
       .put(`${URL}/transactions/${index}`, transaction)
       .then(() => navigate(`/transactions/`));
-    console.log("15");
   };
 
   const handleTextChange = (event) => {
     setTransaction({ ...transaction, [event.target.id]: event.target.value });
-    console.log("no");
   };
 
   const handleNumberChange = (event) => {

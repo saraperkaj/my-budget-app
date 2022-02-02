@@ -10,8 +10,6 @@ function Transactions() {
     axios
       .get(`${URL}/transactions`)
       .then((response) => {
-        console.log(response);
-        console.log(response.data);
         setTrans(response.data);
       })
       .catch((event) => console.log("catch", event));

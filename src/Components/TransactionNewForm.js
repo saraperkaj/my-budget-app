@@ -19,7 +19,6 @@ function TransactionNewForm() {
     axios
       .post(`${URL}/transactions`, transaction)
       .then(() => navigate(`/transactions`));
-    console.log("15");
   };
 
   const handleNumberChange = (event) => {

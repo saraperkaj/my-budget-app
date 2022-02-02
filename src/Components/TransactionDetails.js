@@ -13,7 +13,6 @@ function TransactionDetails() {
       .get(`${URL}/transactions/${index}`)
       .then((response) => {
         setTransaction(response.data);
-        console.log(response.data);
       })
       .catch(() => {
         navigate("/transactions");
