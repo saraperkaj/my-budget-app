@@ -19,12 +19,18 @@ function Transactions() {
   //   return {};
   // }
 
+  const transTotal = transactions.reduce(
+    (prev, current) => prev + current.amount,
+    0
+  );
+
   const transList = transactions.map((transaction, index) => {
     return <Transaction key={index} transaction={transaction} index={index} />;
   });
 
   return (
     <>
+      <div>How much you've spent: ${transTotal}</div>
       <ul>{transList}</ul>
     </>
   );
