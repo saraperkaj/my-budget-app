@@ -13,7 +13,7 @@ function Transactions() {
         setTrans(response.data);
       })
       .catch((event) => console.log("catch", event));
-  }, [URL]);
+  }, []);
 
   // if (response.data === null) {
   //   return {};
